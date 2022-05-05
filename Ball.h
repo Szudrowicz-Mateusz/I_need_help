@@ -10,7 +10,7 @@ public:
         Ball(float t_X, float t_Y);
 
         Ball()=delete;
-        ~Ball();
+        ~Ball(){};
 
         void update();
 

@@ -1,0 +1,68 @@
+diff --git a/Ball.h b/Ball.h
+index 7ec1d5b..4a7fa08 100644
+--- a/Ball.h
++++ b/Ball.h
+@@ -10,7 +10,7 @@ public:
+         Ball(float t_X, float t_Y);
+ 
+         Ball()=delete;
+-        ~Ball();
++        ~Ball(){};
+ 
+         void update();
+ 
+diff --git a/Bazowa.h b/Bazowa.h
+index 0448b85..84d34c2 100644
+--- a/Bazowa.h
++++ b/Bazowa.h
+@@ -16,7 +16,7 @@ class Bazowa{
+         void draw(RenderTarget& target, RenderStates state) const;
+ 
+     public:
+-        Bazowa();
++        Bazowa() = default;
+         virtual ~Bazowa();
+ 
+         virtual void update();
+diff --git a/Makefile b/Makefile
+index 43be858..237fde9 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,23 +1,25 @@
+ CXX		  := g++
+ CXX_FLAGS := -Wall -Wextra -std=c++17 -ggdb
+ 
+-BIN		:= bin
+-SRC		:= src
+-INCLUDE	:= include
+-LIB		:= lib
++BIN = bin
+ 
+ LIBRARIES	:= -lsfml-graphics -lsfml-window -lsfml-system
+ EXECUTABLE	:= main
+ 
++HEADERS = Ball.h Bazowa.h
++SRC = Ball.cpp Bazowa.cpp main.cpp
++OBJ = Ball.o Bazowa.o main.o
+ 
+-all: $(BIN)/$(EXECUTABLE)
++%.o: %.cpp $(HEADERS)
++	$(CXX) -c $^ -o $@ $(CXX_FLAGS)
+ 
+-run: clean all
+-	clear
+-	./$(BIN)/$(EXECUTABLE)
++all: $(EXECUTABLE)
+ 
+-$(BIN)/$(EXECUTABLE): $(SRC)/*.*
+-	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) -L$(LIB) $^ -o $@ $(LIBRARIES)
++run: all
++	./$(EXECUTABLE)
++
++$(EXECUTABLE): $(OBJ)
++	$(CXX) $(CXX_FLAGS) $^ -o $@ $(LIBRARIES)
+ 
+ clean:
+-	-rm $(BIN)/*
++	-rm $(EXECUTABLE) $(OBJ)
+

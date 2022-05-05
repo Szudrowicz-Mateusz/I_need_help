@@ -16,7 +16,7 @@ class Bazowa{
         void draw(RenderTarget& target, RenderStates state) const;
 
     public:
-        Bazowa();
+        Bazowa() = default;
         virtual ~Bazowa();
 
         virtual void update();

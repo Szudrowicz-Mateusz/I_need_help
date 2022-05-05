@@ -1,23 +1,25 @@
 CXX		  := g++
 CXX_FLAGS := -Wall -Wextra -std=c++17 -ggdb
 
-BIN		:= bin
-SRC		:= src
-INCLUDE	:= include
-LIB		:= lib
+BIN = bin
 
 LIBRARIES	:= -lsfml-graphics -lsfml-window -lsfml-system
 EXECUTABLE	:= main
 
+HEADERS = Ball.h Bazowa.h
+SRC = Ball.cpp Bazowa.cpp main.cpp
+OBJ = Ball.o Bazowa.o main.o
 
-all: $(BIN)/$(EXECUTABLE)
+%.o: %.cpp $(HEADERS)
+	$(CXX) -c $< -o $@ $(CXX_FLAGS)
 
-run: clean all
-	clear
-	./$(BIN)/$(EXECUTABLE)
+all: $(EXECUTABLE)
 
-$(BIN)/$(EXECUTABLE): $(SRC)/*.*
-	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) -L$(LIB) $^ -o $@ $(LIBRARIES)
+run: all
+	./$(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJ)
+	$(CXX) $(CXX_FLAGS) $^ -o $@ $(LIBRARIES)
 
 clean:
-	-rm $(BIN)/*
+	-rm $(EXECUTABLE) $(OBJ)
