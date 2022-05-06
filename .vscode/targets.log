@@ -1,39 +1,22 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.2.1
- 
 # Built for x86_64-pc-linux-gnu
- 
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
- 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
- 
 # This is free software: you are free to change and redistribute it.
- 
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
- 
-# Make data base, printed on Thu May  5 12:18:21 2022
- 
+# Make data base, printed on Fri May  6 19:41:52 2022
 
 # Variables
- 
 
- 
 # automatic
- 
 <D = $(patsubst %/,%,$(dir $<))
- 
 # automatic
- 
 ?F = $(notdir $?)
- 
 # environment
- 
 DESKTOP_SESSION = cinnamon
- 
 # default
- 
 .SHELLFLAGS := -c
 # makefile (from 'Makefile', line 11)
 OBJ = Ball.o Bazowa.o main.o
@@ -93,7 +76,6 @@ LESSOPEN = | /usr/bin/lesspipe %s
 VSCODE_CWD = /home/mati/Dokumenty/Repozytorium/I_need_help
 # environment
 XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
- 
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -101,7 +83,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/mati-Linux-Mint:@/tmp/.ICE-unix/1193,unix/mati-Linux-Mint:/tmp/.ICE-unix/1193
+SESSION_MANAGER = local/mati-Linux-Mint:@/tmp/.ICE-unix/1202,unix/mati-Linux-Mint:/tmp/.ICE-unix/1202
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -133,7 +115,7 @@ QT_QPA_PLATFORMTHEME = qt5ct
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1265
+SSH_AGENT_PID = 1274
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = X-Cinnamon
 # environment
@@ -151,7 +133,7 @@ VSCODE_CODE_CACHE_PATH = /home/mati/.config/Code/CachedData/dfd34e8260c270da74b5
 # environment
 LOGNAME = mati
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # makefile (from 'Makefile', line 9)
 HEADERS = Ball.h Bazowa.h
 # environment
@@ -177,7 +159,7 @@ SHLVL = 1
 # makefile (from 'Makefile', line 2)
 CXX_FLAGS := -Wall -Wextra -std=c++17 -ggdb
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-70473ac6-efd2-4223-97a4-8545a9aec177.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-95b551dd-c2c9-4913-9a22-d39ba33f443f.sock
 # environment
 XDG_SESSION_ID = c2
 # environment
@@ -215,6 +197,8 @@ GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
 # environment
+NO_AT_BRIDGE = 1
+# environment
 CINNAMON_VERSION = 5.0.7
 # environment
 QT_ACCESSIBILITY = 1
@@ -233,11 +217,11 @@ LIBRARIES := -lsfml-graphics -lsfml-window -lsfml-system
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/4f0fca57_005e_4f0e_b31f_e2e369208789
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a94ca454_b9e8_4a25_907a_be2f92d8f0f3
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.275
+GNOME_TERMINAL_SERVICE = :1.82
 # default
 SUFFIXES := 
 # environment
@@ -253,9 +237,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 8357
+VSCODE_PID = 3966
 # variable set hash-table stats:
-# Load=113/1024=11%, Rehash=0, Collisions=12/147=8%
+# Load=114/1024=11%, Rehash=0, Collisions=12/143=8%
 
 # Pattern-specific Variable Values
 
@@ -263,15 +247,15 @@ VSCODE_PID = 8357
 
 # Directories
 
-# . (device 2053, inode 10618604): 12 files, no impossibilities.
+# . (device 2053, inode 10618604): 17 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 %.o: %.cpp Ball.h Bazowa.h
 #  recipe to execute (from 'Makefile', line 14):
-	$(CXX) -c $^ -o $@ $(CXX_FLAGS)
+	$(CXX) -c $< -o $@ $(CXX_FLAGS)
 
 # 1 implicit rules, 0 (0.0%) terminal.
 
@@ -282,49 +266,40 @@ all: main
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  Successfully updated.
 
 Ball.o: Ball.cpp Ball.h Bazowa.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'Ball'
-#  File does not exist.
+#  Last modified 2022-05-05 13:08:43.745761281
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := Ball.o
-# automatic
-# % := 
-# automatic
-# * := Ball
-# automatic
-# + := Ball.cpp Ball.h Bazowa.h
-# automatic
-# | := 
-# automatic
-# < := Ball.cpp
-# automatic
-# ^ := Ball.cpp Ball.h Bazowa.h
-# automatic
-# ? := Ball.cpp Ball.h Bazowa.h
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/15=7%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 14):
-	$(CXX) -c $^ -o $@ $(CXX_FLAGS)
+	$(CXX) -c $< -o $@ $(CXX_FLAGS)
 
 # Not a target:
 Makefile:
+ 
 #  Implicit rule search has been done.
-#  Last modified 2022-05-05 12:07:21.078746049
+#  Last modified 2022-05-05 13:02:25.799289596
 #  File has been updated.
 #  Successfully updated.
 
+Bazowa.o: Bazowa.cpp Ball.h Bazowa.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Bazowa'
+#  Last modified 2022-05-05 13:08:45.861798163
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	$(CXX) -c $< -o $@ $(CXX_FLAGS)
+
 # Not a target:
-Bazowa.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+main.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-05 11:38:19.085685387
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 .DEFAULT:
@@ -362,21 +337,20 @@ Ball.cpp:
 
 main: Ball.o Bazowa.o main.o
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2022-05-05 13:08:48.59784586
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 22):
 	$(CXX) $(CXX_FLAGS) $^ -o $@ $(LIBRARIES)
 
-# Not a target:
- 
-main.o:
- 
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+main.o: main.cpp Ball.h Bazowa.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'main'
+#  Last modified 2022-05-05 13:08:47.781831634
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 14):
+	$(CXX) -c $< -o $@ $(CXX_FLAGS)
 
 # Not a target:
 Bazowa.h:
@@ -385,21 +359,27 @@ Bazowa.h:
 #  File has been updated.
 #  Successfully updated.
 
+# Not a target:
+Bazowa.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-05 11:38:19.085685387
+#  File has been updated.
+#  Successfully updated.
+
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=0/37=0%
+# Load=15/1024=1%, Rehash=0, Collisions=0/53=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
- 
-# strcache buffers: 1 (0) / strings = 26 / storage = 204 B / avg = 7 B
-# current buf: size = 8162 B / used = 204 B / count = 26 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 28 / storage = 226 B / avg = 8 B
+# current buf: size = 8162 B / used = 226 B / count = 28 / avg = 8 B
 
-# strcache performance: lookups = 45 / hit rate = 42%
+# strcache performance: lookups = 64 / hit rate = 56%
 # hash-table stats:
-# Load=26/8192=0%, Rehash=0, Collisions=1/45=2%
-# Finished Make data base on Thu May  5 12:18:21 2022
+# Load=28/8192=0%, Rehash=0, Collisions=1/64=2%
+# Finished Make data base on Fri May  6 19:41:52 2022
 
  
