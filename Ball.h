@@ -3,7 +3,8 @@
 #include "Bazowa.h"
 
 
-
+//Klasa pochodna. Wykorzystuję zmienne kalsy Bazowej, które zmieniane są w konstruktorze
+//Posiada metode rysowania odwołująca się do przekazywania obiektu referencyjnie(Funkcja SFML)
 
 class Ball : public Bazowa {
 

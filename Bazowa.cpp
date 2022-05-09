@@ -4,6 +4,7 @@
             //nic
         }
 
+
 void Bazowa::update()
 {
 
@@ -22,10 +23,11 @@ void Bazowa::update()
         velocity.y=ballVelocity;
     }
 
-    if(this->bottom()>768)
+    else if(this->bottom()>768)
     {
         velocity.y=-ballVelocity;
     }
+
 }
 
         float Bazowa::left()
