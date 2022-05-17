@@ -6,9 +6,9 @@ BIN = bin
 LIBRARIES	:= -lsfml-graphics -lsfml-window -lsfml-system
 EXECUTABLE	:= main
 
-HEADERS = Ball.h Bazowa.h
-SRC = Ball.cpp Bazowa.cpp main.cpp
-OBJ = Ball.o Bazowa.o main.o
+HEADERS = Ball.h Bazowa.h Punkty.h Przeciwnik.h Ofiara.h
+SRC = Ball.cpp Bazowa.cpp main.cpp Punkty.cpp Przeciwnik.cpp Ofira.cpp
+OBJ = Ball.o Bazowa.o main.o Punkty.o Przeciwnik.o Ofiara.o
 
 %.o: %.cpp $(HEADERS)
 	$(CXX) -c $< -o $@ $(CXX_FLAGS)

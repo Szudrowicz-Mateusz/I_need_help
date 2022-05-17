@@ -4,6 +4,10 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 
 using namespace sf;
 
