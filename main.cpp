@@ -38,7 +38,6 @@ bool collisionTestHunted(Ball& ball, Ofiara& ofiara)
 
         ofiara.destroy();
         ball.kill(2);
-        std::cout<<ball.score<<std::endl;
         
     return true;
     
@@ -49,6 +48,7 @@ bool collisionTestOponent(Ball& ball, Przeciwnik& przeciwnik)
     if(!isIntersecting(ball,przeciwnik)) return false;
 
 //tutaj dodać metodę wyświetlającą game over
+    ball.kill(3);
    
     return true;
     
@@ -56,16 +56,23 @@ bool collisionTestOponent(Ball& ball, Przeciwnik& przeciwnik)
 
 
 
+
+
+
 int main()
 {
-    srand(time(NULL));
+   srand(time(NULL));
 
+    //Zmienne do losowania wektorów prędkości
     int _x,_y;
     
-    Ball ball(512,384,10.f,3.f);
-    Przeciwnik przeciwnik(300,200,30.f,3.f);
-    //Punkty punkt(300,200,30.f);
-    //Ofiara ofiara(0,0,30.f,3.f);
+    //Tworzenie obiektów poprzez klasy
+    Ball ball(512,384,10.f,0.f);
+    Przeciwnik przeciwnik(300,200,30.f,1.f);
+    Przeciwnik przeciwnikV2(600,100,30.f,3.f);
+
+    //Ustawienie tekstu 
+    ball.setMyText();
 
     //,,Tablica" obiektów danego typu
     std::vector<Punkty> punkty;
@@ -75,7 +82,7 @@ int main()
 // Punkty
     for(int i=0; i<15;i++)
     {
-
+        
         _x=rand()%1023+2;
        _y=rand()%767+2;
         punkty.emplace_back(_x,_y,3.f);
@@ -83,7 +90,7 @@ int main()
 // Ofiary
         for(int i=0; i<5;i++)
     {
-
+        
         _x=rand()%1023+2;
        _y=rand()%767+2;
         ofiara.emplace_back(_x,_y,10.f,3.f);
@@ -110,15 +117,18 @@ int main()
                 break;
             }
 
-
+            //Aktualizujemy stan obiektu
             ball.update();
             przeciwnik.update();
-            //ofiara.update();
+            przeciwnikV2.update();
 
+            //Rysujemy obiektu na ekranie
             window.draw(ball);
             window.draw(przeciwnik);
-            //window.draw(punkt);
-           // window.draw(ofiara);
+            window.draw(przeciwnikV2);
+
+            //Rysujemy licznik w prawym górnym rogu
+           window.draw(ball.scoreTxt);
 
 // Rysujemy obiekty funkcja sf::draw() w pętli przechodzącej przez wszystkie obiekty naszego vectora
             for(auto& punkciki : punkty)
@@ -126,15 +136,17 @@ int main()
                 window.draw(punkciki);
             }
 
-                for(auto& ofiary : ofiara)
+            for(auto& ofiary : ofiara)
             {
                 window.draw(ofiary);
                 ofiary.update();
             }
 
-            //collisionTestPoints(ball,punkty);
-            //collisionTestHunted(ball,ofiara);
+
+
+            //Sprawdzamy kolizje pomiędzy poszczególnymi obiektami
             collisionTestOponent(ball,przeciwnik);
+            collisionTestOponent(ball,przeciwnikV2);
 //Sprawdzamy czy jakikolwiek element w naszym vectorze został skolizowany
 //Jeżeli tak usuwamy dany element z vectora 
             for(auto& punkciki : punkty) if(collisionTestPoints(ball,punkciki)) break;
@@ -147,10 +159,44 @@ int main()
 
             auto iteratorHunted=remove_if(begin(ofiara), end(ofiara), [](Ofiara& ofiara){return ofiara.isDestroyed();});
             ofiara.erase(iteratorHunted,end(ofiara));
-            
-            
+
 
         window.display(); //wywoływanie obiektów 
+
+        //Sprawdzamy czy gracz wygrał bądź przegrał
+//Wykorzystujemy do tego pętle gry, która nie korzysta z window.clear(), aby został powidok rozgrywki
+        if(ball.score==0){
+            while(true){
+                window.draw(ball.gameLose);
+                window.display();
+
+                              
+                            window.pollEvent(event); // Pozwala nie frezzować kompa 
+
+                                if(event.type==Event::Closed) //Zamykanie za pomocą X okna
+                        {
+                                 window.close();
+                                break;
+                        }
+             
+            }
+        }
+        if(ball.score>=1000){
+            while(true){
+                window.draw(ball.gameWin);
+                window.display();
+
+                            
+                            window.pollEvent(event); // Pozwala nie frezzować kompa 
+
+                                if(event.type==Event::Closed) //Zamykanie za pomocą X okna
+                        {
+                                 window.close();
+                                break;
+                        }
+            }
+        }
+     
     }
 
     return 0; 

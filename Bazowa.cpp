@@ -4,7 +4,7 @@
             //nic
         }
 
-
+//Metoda sprawdza pozycję obiektu i zmienia wektor poruszania zależenie od dotkniętej ściany
 void Bazowa::update()
 {
 
@@ -30,6 +30,7 @@ void Bazowa::update()
 
 }
 
+        //Metody zwracające pozycję obiektu
         float Bazowa::left()
         {
             return this->shape.getPosition().x-shape.getRadius();

@@ -9,6 +9,7 @@
 #include <time.h>
 
 
+
 using namespace sf;
 
 //Klasa Bazowa w której są zmeinne odnoszące się do 
@@ -26,17 +27,18 @@ class Bazowa: public sf::Drawable{
 
 
 
-
     public:
+    //Konstruktory i desktrukotr
         Bazowa() = default;
         ~Bazowa();
 
-        
-        void update(); //Sprawdza czy piłka znajduję się na ekranie
+        //Sprawdza czy piłka znajduję się na ekranie
+        void update();
 
+        //Metody zwracająca pozycje piłki
         float left();
         float right();
         float top();
-        float bottom(); //Opisujemy ramy ekranu na twardo
+        float bottom();
 
 };

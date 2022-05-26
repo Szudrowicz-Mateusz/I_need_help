@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun May  8 21:42:54 2022
+# Make data base, printed on Tue May 17 17:55:36 2022
 
 # Variables
 
@@ -19,11 +19,11 @@ DESKTOP_SESSION = cinnamon
 # default
 .SHELLFLAGS := -c
 # makefile (from 'Makefile', line 11)
-OBJ = Ball.o Bazowa.o main.o
+OBJ = Ball.o Bazowa.o main.o Punkty.o Przeciwnik.o Ofiara.o
 # environment
 XDG_SESSION_CLASS = user
 # makefile (from 'Makefile', line 10)
-SRC = Ball.cpp Bazowa.cpp main.cpp
+SRC = Ball.cpp Bazowa.cpp main.cpp Punkty.cpp Przeciwnik.cpp Ofira.cpp
 # environment
 XDG_SESSION_TYPE = x11
 # environment
@@ -83,7 +83,7 @@ PATH = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-SESSION_MANAGER = local/mati-Linux-Mint:@/tmp/.ICE-unix/1240,unix/mati-Linux-Mint:/tmp/.ICE-unix/1240
+SESSION_MANAGER = local/mati-Linux-Mint:@/tmp/.ICE-unix/1203,unix/mati-Linux-Mint:/tmp/.ICE-unix/1203
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -115,7 +115,7 @@ QT_QPA_PLATFORMTHEME = qt5ct
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1312
+SSH_AGENT_PID = 1275
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = X-Cinnamon
 # environment
@@ -135,7 +135,7 @@ LOGNAME = mati
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # makefile (from 'Makefile', line 9)
-HEADERS = Ball.h Bazowa.h
+HEADERS = Ball.h Bazowa.h Punkty.h Przeciwnik.h Ofiara.h
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
@@ -159,7 +159,7 @@ SHLVL = 1
 # makefile (from 'Makefile', line 2)
 CXX_FLAGS := -Wall -Wextra -std=c++17 -ggdb
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-bf8aaf70-fd44-4665-997c-df64b47df06e.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-756aa941-723c-4579-8fea-051c5e8474e4.sock
 # environment
 XDG_SESSION_ID = c2
 # environment
@@ -197,8 +197,6 @@ GDK_BACKEND = x11
 # automatic
 +F = $(notdir $+)
 # environment
-NO_AT_BRIDGE = 1
-# environment
 CINNAMON_VERSION = 5.0.7
 # environment
 QT_ACCESSIBILITY = 1
@@ -217,11 +215,11 @@ LIBRARIES := -lsfml-graphics -lsfml-window -lsfml-system
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/e830cd10_4f5e_40ab_98a2_bc9331a37211
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/fa7e20e9_e96d_4f68_8ae4_6aca6f19d8da
 # automatic
 ^F = $(notdir $^)
 # environment
-GNOME_TERMINAL_SERVICE = :1.81
+GNOME_TERMINAL_SERVICE = :1.393
 # default
 SUFFIXES := 
 # environment
@@ -237,9 +235,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 2611
+VSCODE_PID = 9447
 # variable set hash-table stats:
-# Load=114/1024=11%, Rehash=0, Collisions=12/148=8%
+# Load=113/1024=11%, Rehash=0, Collisions=12/147=8%
 
 # Pattern-specific Variable Values
 
@@ -247,13 +245,13 @@ VSCODE_PID = 2611
 
 # Directories
 
-# . (device 2053, inode 10618604): 10 files, no impossibilities.
+# . (device 2053, inode 10618604): 17 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 17 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
-%.o: %.cpp Ball.h Bazowa.h
+%.o: %.cpp Ball.h Bazowa.h Punkty.h Przeciwnik.h Ofiara.h
 #  recipe to execute (from 'Makefile', line 14):
 	$(CXX) -c $< -o $@ $(CXX_FLAGS)
 
@@ -270,38 +268,51 @@ all: main
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
 
-Ball.o: Ball.cpp Ball.h Bazowa.h
+# Not a target:
+Przeciwnik.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-10 17:15:57.193416
+#  File has been updated.
+#  Successfully updated.
+
+Ball.o: Ball.cpp Ball.h Bazowa.h Punkty.h Przeciwnik.h Ofiara.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'Ball'
 #  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
- 
 # automatic
 # @ := Ball.o
 # automatic
 # % := 
 # automatic
 # * := Ball
+ 
 # automatic
-# + := Ball.cpp Ball.h Bazowa.h
+# + := Ball.cpp Ball.h Bazowa.h Punkty.h Przeciwnik.h Ofiara.h
 # automatic
 # | := 
 # automatic
 # < := Ball.cpp
 # automatic
-# ^ := Ball.cpp Ball.h Bazowa.h
+# ^ := Ball.cpp Ball.h Bazowa.h Punkty.h Przeciwnik.h Ofiara.h
 # automatic
-# ? := Ball.cpp Ball.h Bazowa.h
+# ? := Ball.cpp Ball.h Bazowa.h Punkty.h Przeciwnik.h Ofiara.h
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/15=7%
 #  recipe to execute (from 'Makefile', line 14):
 	$(CXX) -c $< -o $@ $(CXX_FLAGS)
 
 # Not a target:
+Punkty.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-05 13:02:25.799289
+#  Last modified 2022-05-10 17:24:59.491176
 #  File has been updated.
 #  Successfully updated.
 
@@ -312,7 +323,20 @@ Bazowa.o:
 #  File has not been updated.
 
 # Not a target:
+Ofiara.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-12 20:58:27.074162
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
 .DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Przeciwnik.o:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -334,18 +358,25 @@ clean:
 # Not a target:
 Ball.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-06 20:08:57.904053
+#  Last modified 2022-05-14 21:28:50.729742
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Punkty.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-10 16:52:03.761582
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 Ball.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-06 20:32:34.1518
+#  Last modified 2022-05-14 21:28:47.49371
 #  File has been updated.
 #  Successfully updated.
 
-main: Ball.o Bazowa.o main.o
+main: Ball.o Bazowa.o main.o Punkty.o Przeciwnik.o Ofiara.o
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
@@ -364,24 +395,30 @@ main.o:
 # Not a target:
 Bazowa.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-05-06 20:24:23.698569
+#  Last modified 2022-05-11 22:40:39.879341
 #  File has been updated.
 #  Successfully updated.
 
+# Not a target:
+Ofiara.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=13/1024=1%, Rehash=0, Collisions=0/37=0%
+# Load=19/1024=2%, Rehash=0, Collisions=2/52=4%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 24 / storage = 180 B / avg = 7 B
-# current buf: size = 8162 B / used = 180 B / count = 24 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 34 / storage = 289 B / avg = 8 B
+# current buf: size = 8162 B / used = 289 B / count = 34 / avg = 8 B
 
-# strcache performance: lookups = 43 / hit rate = 44%
+# strcache performance: lookups = 62 / hit rate = 45%
 # hash-table stats:
-# Load=24/8192=0%, Rehash=0, Collisions=1/43=2%
-# Finished Make data base on Sun May  8 21:42:54 2022
+# Load=34/8192=0%, Rehash=0, Collisions=1/62=2%
+# Finished Make data base on Tue May 17 17:55:36 2022
 
  
